@@ -1,0 +1,68 @@
+
+<%# BANDEAU %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url(<%= @list.image_link %>)">
+    <h1><%= @list.name %></h1>
+  </div>
+
+  <div class="container">
+
+    <%# BOUTON %>
+    <div class="titre-et-bouton" id="rightAlign">
+      <button type="button" class="btn btn-success">
+        <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+      </button>
+    </div>
+
+    <%# CARDS %>
+    <div class="cards small-container">
+
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="card-trip">
+          <img src="<%= bookmark.movie.poster_url %>" />
+
+          <div class="bookmark" >
+
+            <div id="marginBottomDix">
+              <h2><%= "#{bookmark.movie.title}" %></h2>
+              <p><%= bookmark.movie.overview %></p>
+              <br>
+            </div>
+
+            <%# dernière ligne de la card %>
+            <div class="space-beetween">
+
+            <%# Attention : la position absolue de iconeEtComment & absoluteDelete est rattachée à la position relative de bookmark %>
+              <%# icône et commentaire %>
+              <div id="iconeEtComment">
+                <p id="marginRight"><i class="fa-solid fa-quote-left"></i></p>
+                <p><strong><%="#{bookmark.comment}"%></strong></p>
+              </div>
+              <%# bouton Delete %>
+              <div id="absoluteDelete">
+                <%# <p><strong>Delete</strong></p> %>
+                <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-link" %>
+              </div>
+            </div>
+
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+
+
+
+<%#
+      <ul>
+        <% @list.bookmarks.each do |bookmark| %>
+          <%# <li>
+            <%= "#{bookmark.movie.title} - #{bookmark.comment}" %>
+            <%# <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          <%# </li>
+        <% end %>
+      <%# </ul> %>
+
+    </div>
+  </div>
+</div>

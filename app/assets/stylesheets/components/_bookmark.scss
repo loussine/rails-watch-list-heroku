@@ -1,0 +1,48 @@
+.bookmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  position: relative;
+}
+
+.space-beetween {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // align-items: s;
+}
+
+
+#marginRight {
+  margin-right: 5px;
+}
+
+#iconeEtComment {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+
+#absoluteDelete {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: red;
+}
+
+.delete-link {
+  font-family: "Work Sans", Helvetica, sans-serif; // Utilisation de la famille de polices spécifiée
+  font-size: 12px; // Taille de la police de caractères
+  color: $danger; // Utilisation de la couleur danger définie dans les variables Bootstrap
+  font-weight: bold;
+}
+
+// <i class="fa-solid fa-quote-left"></i>
+
+// <%# <p id="test"><%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+
+// <p><strong>Delete</strong></p>
