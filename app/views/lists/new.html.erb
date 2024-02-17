@@ -9,7 +9,8 @@
 
   <%= simple_form_for @list do |f| %>
     <%= f.input :name, label_html: { class: "bold-text" } %>
-    <%= f.input :image_link, label: "Image Link", label_html: { class: "bold-text" } %>
+    <%# <%= f.input :image_link, label: "Image Link", label_html: { class: "bold-text" } %>
+    <%= f.input :image, as: :file, label_html: { class: "bold-text" }%>
     <%= f.submit "Create List", class: 'btn btn-success text-white' %>
   <% end %>
 
